@@ -5,6 +5,7 @@ RUN yum -y update && yum install -y \
     avahi-compat-libdns_sd \
     cmake3 \
     git \
+    gpg \
     make \
     libXtst-devel \
     qt5-qtbase-devel \
