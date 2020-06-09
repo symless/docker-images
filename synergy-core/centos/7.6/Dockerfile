@@ -17,4 +17,6 @@ RUN yum -y update && yum install -y \
     openssl-devel \
     gcc-c++ \
     c++ \
+    rpm-build \
+    rpmlint \
     && rm -rf /var/cache/yum

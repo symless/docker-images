@@ -13,4 +13,6 @@ RUN dnf -y update && dnf --enablerepo=PowerTools install -y \
     openssl-devel \
     gcc-c++ \
     gcc \
+    rpm-build \
+    rpmlint \
     && rm -rf /var/cache/yum

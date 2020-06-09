@@ -13,4 +13,6 @@ RUN yum -y update && yum install -y \
     qt5-qttools-devel \
     libcurl-devel \
     openssl-devel \
+    rpm-build \
+    rpmlint \
     && rm -rf /var/cache/yum
