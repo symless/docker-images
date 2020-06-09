@@ -1,6 +1,6 @@
 FROM debian:buster
 
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade && apt-get install -y \
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
     cmake \
     qtbase5-dev \
