@@ -1,6 +1,11 @@
 FROM centos:8.1.1911
 
-RUN dnf -y update && dnf --enablerepo=PowerTools install -y \
+RUN \
+   yum -y update && \
+   yum -y install dnf-plugins-core && \
+   yum -y config-manager --set-enabled powertools
+
+RUN dnf -y update && dnf install -y \
     avahi-compat-libdns_sd-devel \
     cmake \
     git \
@@ -15,4 +20,5 @@ RUN dnf -y update && dnf --enablerepo=PowerTools install -y \
     gcc \
     rpm-build \
     rpmlint \
+    python3 \
     && rm -rf /var/cache/yum
