@@ -2,7 +2,6 @@ import argparse
 import docker
 import os
 
-
 parser = argparse.ArgumentParser(description='Make docker images')
 
 parser.add_argument('source', help='The soruce dir of synergy-core')
