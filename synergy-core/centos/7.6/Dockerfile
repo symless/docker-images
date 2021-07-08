@@ -1,7 +1,6 @@
 FROM centos:7.6.1810
 
 RUN yum install -y \
-    http://repo.okay.com.mx/centos/7/x86_64/release/okay-release-1-1.noarch.rpm \
     centos-release-scl
 
 RUN yum -y update && yum install -y \
@@ -19,6 +18,9 @@ RUN yum -y update && yum install -y \
     devtoolset-9 \
     rpm-build \
     rpmlint \
+    libnotify-devel \
+    glib2-devel \
+    gdk-pixbuf2-devel \
     && rm -rf /var/cache/yum
 
 ENV PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
