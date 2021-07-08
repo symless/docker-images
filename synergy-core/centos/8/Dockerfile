@@ -21,4 +21,7 @@ RUN dnf -y update && dnf install -y \
     rpm-build \
     rpmlint \
     python3 \
+    libnotify-devel \
+    glib2-devel \
+    gdk-pixbuf2-devel \
     && rm -rf /var/cache/yum

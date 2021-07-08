@@ -15,4 +15,7 @@ RUN yum -y update && yum install -y \
     openssl-devel \
     rpm-build \
     rpmlint \
+    libnotify-devel \
+    glib2-devel \
+    gdk-pixbuf2-devel \
     && rm -rf /var/cache/yum

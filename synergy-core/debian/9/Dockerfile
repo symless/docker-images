@@ -15,4 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     qttools5-dev \
     qttools5-dev-tools \
     qt5-default \
+    libnotify-dev \
+    libglib2.0-dev \
+    libgdk-pixbuf2.0-dev \
     && rm -rf /var/lib/apt/lists
