@@ -1,7 +1,8 @@
 FROM centos:7.6.1810
 
 RUN yum install -y \
-    centos-release-scl
+    centos-release-scl \
+    epel-release
 
 RUN yum -y update && yum install -y \
     avahi-compat-libdns_sd-devel \
