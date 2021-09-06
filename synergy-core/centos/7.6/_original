@@ -4,9 +4,6 @@ RUN yum install -y \
     centos-release-scl \
     epel-release
 
-RUN yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.9-1.x86_64.rpm
-
-
 RUN yum -y update && yum install -y \
     avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \

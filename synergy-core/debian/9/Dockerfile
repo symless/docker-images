@@ -1,7 +1,7 @@
 FROM debian:stretch
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
-    git \
+    software-properties-common \
     cmake \
     qtbase5-dev \
     build-essential \
@@ -19,3 +19,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libglib2.0-dev \
     libgdk-pixbuf2.0-dev \
     && rm -rf /var/lib/apt/lists
+
+RUN apt-add-repository ppa:git-core/ppa && apt-get update && apt-get install -y git
