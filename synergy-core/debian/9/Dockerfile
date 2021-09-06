@@ -1,7 +1,10 @@
+# Installs git 2.20
+
 FROM debian:stretch
 
+RUN sed -i 's/ stretch / buster /g' /etc/apt/sources.list
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
-    git \
+    software-properties-common \
     cmake \
     qtbase5-dev \
     build-essential \
@@ -18,4 +21,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libnotify-dev \
     libglib2.0-dev \
     libgdk-pixbuf2.0-dev \
+    libc6/buster \
+    libc6-dev/buster \
+    libc-dev-bin/buster \
     && rm -rf /var/lib/apt/lists
+
+RUN apt-get install -y git

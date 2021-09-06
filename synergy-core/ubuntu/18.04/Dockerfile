@@ -1,7 +1,6 @@
 FROM ubuntu:18.04
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
-    git \
     software-properties-common \
     cmake \
     qtbase5-dev \

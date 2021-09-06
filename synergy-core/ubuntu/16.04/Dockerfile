@@ -1,5 +1,9 @@
 FROM ubuntu:16.04
 
+RUN apt-get update && apt-get upgrade && apt-get install -y software-properties-common
+
+RUN apt-add-repository ppa:git-core/ppa 
+
 RUN apt-get update \
     && apt-get install -y wget \
     && rm -rf /var/lib/apt/lists
