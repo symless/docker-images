@@ -16,6 +16,7 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
+    curl \
     qtbase5-dev \
     build-essential \
     libx11-dev \
