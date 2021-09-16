@@ -24,6 +24,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libc6/buster \
     libc6-dev/buster \
     libc-dev-bin/buster \
+    zip \
     && rm -rf /var/lib/apt/lists
 
 RUN apt-get install -y git
