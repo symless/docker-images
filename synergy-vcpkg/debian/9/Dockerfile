@@ -38,4 +38,4 @@ RUN git clone --depth=1 https://github.com/Microsoft/vcpkg $VCPKG_INSTALLATION_R
     && ln -sf $VCPKG_INSTALLATION_ROOT/vcpkg /usr/local/bin
 
 # Setup vcpkg packages
-RUN vcpkg install openssl qt5-base
+RUN vcpkg install --clean-after-build openssl qt5-base
