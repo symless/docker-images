@@ -6,6 +6,8 @@ ENV VCPKG_INSTALLATION_ROOT=/usr/local/share/vcpkg
 # Setup pakcages
 RUN apt-get update \
     && apt-get upgrade -y \
+    && apt-get install -y software-properties-common \
+    && apt-add-repository ppa:git-core/ppa \
     && apt-get install -y \
     # Synergy requirements
     cmake libxtst-dev libglib2.0-dev libgdk-pixbuf2.0-dev libnotify-dev \
