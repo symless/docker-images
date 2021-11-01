@@ -11,7 +11,7 @@ RUN yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-
     && yum -y install \
     epel-release git make devtoolset-9-gcc-c++ \
     # synergy requirements
-    cmake3 glib2-devel gdk-pixbuf2-devel libnotify-devel libXtst-devel \
+    cmake3 glib2-devel gdk-pixbuf2-devel libnotify-devel libXtst-devel libxkbfile-devel \
     # vcpkg requirements
     curl zip unzip tar \
     # openssl requirements

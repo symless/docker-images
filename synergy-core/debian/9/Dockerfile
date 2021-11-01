@@ -21,6 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libnotify-dev \
     libglib2.0-dev \
     libgdk-pixbuf2.0-dev \
+    libxkbfile-dev \
     libc6/buster \
     libc6-dev/buster \
     libc-dev-bin/buster \

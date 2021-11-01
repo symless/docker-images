@@ -24,4 +24,5 @@ RUN dnf -y update && dnf install -y \
     libnotify-devel \
     glib2-devel \
     gdk-pixbuf2-devel \
+    libxkbfile-devel \
     && rm -rf /var/cache/yum

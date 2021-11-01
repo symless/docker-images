@@ -25,6 +25,7 @@ RUN yum -y update && yum install -y \
     libnotify-devel \
     glib2-devel \
     gdk-pixbuf2-devel \
+    libxkbfile-devel \
     && rm -rf /var/cache/yum
 
 ENV PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

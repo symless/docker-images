@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y \
     # Synergy requirements
-    cmake libxtst-dev libglib2.0-dev libgdk-pixbuf2.0-dev libnotify-dev \
+    cmake libxtst-dev libglib2.0-dev libgdk-pixbuf2.0-dev libnotify-dev libxkbfile-dev \
     # Install common build dependencies
     at curl unzip tar libxt-dev gperf libxaw7-dev cifs-utils build-essential \
     g++ gfortran zip libx11-dev libxkbcommon-x11-dev libxi-dev libgl1-mesa-dev \
