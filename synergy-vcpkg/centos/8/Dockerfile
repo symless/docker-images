@@ -24,7 +24,7 @@ ENV PATH=/opt/rh/gcc-toolset-10/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr
 ENV LD_LIBRARY_PATH=/opt/rh/gcc-toolset-10/root/usr/lib64:/opt/rh/gcc-toolset-10/root/usr/lib:/opt/rh/gcc-toolset-10/root/usr/lib64/dyninst:/opt/rh/gcc-toolset-10/root/usr/lib/dyninst
 
 # Setup vcpkg
-RUN git clone --depth=1 https://github.com/Microsoft/vcpkg $VCPKG_INSTALLATION_ROOT \
+RUN git clone --depth=1  --branch 2021.05.12 https://github.com/Microsoft/vcpkg $VCPKG_INSTALLATION_ROOT \
     && $VCPKG_INSTALLATION_ROOT/bootstrap-vcpkg.sh \
     && $VCPKG_INSTALLATION_ROOT/vcpkg integrate install \
     && chmod 0777 -R $VCPKG_INSTALLATION_ROOT \
