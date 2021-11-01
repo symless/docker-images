@@ -17,7 +17,7 @@ RUN dnf -y update \
     && rm -rf /var/cache/dnf
 
 # Setup vcpkg
-RUN git clone --depth=1 https://github.com/Microsoft/vcpkg $VCPKG_INSTALLATION_ROOT \
+RUN git clone --depth=1 --branch 2021.05.12 https://github.com/Microsoft/vcpkg $VCPKG_INSTALLATION_ROOT \
     && $VCPKG_INSTALLATION_ROOT/bootstrap-vcpkg.sh \
     && $VCPKG_INSTALLATION_ROOT/vcpkg integrate install \
     && chmod 0777 -R $VCPKG_INSTALLATION_ROOT \
