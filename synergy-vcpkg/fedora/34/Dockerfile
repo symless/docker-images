@@ -5,7 +5,7 @@ ENV VCPKG_INSTALLATION_ROOT=/usr/local/share/vcpkg
 RUN dnf -y update \
     && dnf -y install @development-tools git \
     # synergy requirements
-    cmake glib2-devel gdk-pixbuf2-devel libnotify-devel \
+    cmake glib2-devel gdk-pixbuf2-devel libnotify-devel libxkbfile-devel \
     # openssl requirements
     perl \
     # qt5-base requirements

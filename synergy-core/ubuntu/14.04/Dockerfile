@@ -29,4 +29,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libnotify-dev \
     libglib2.0-dev \
     libgdk-pixbuf2.0-dev \
+    libxkbfile-dev \
     && rm -rf /var/lib/apt/lists

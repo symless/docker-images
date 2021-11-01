@@ -8,7 +8,7 @@ RUN yum -y update \
     && yum -y install \
     epel-release git make python3 gcc-toolset-10-toolchain \
     # synergy requirements
-    cmake glib2-devel gdk-pixbuf2-devel libnotify-devel libXtst-devel \
+    cmake glib2-devel gdk-pixbuf2-devel libnotify-devel libXtst-devel libxkbfile-devel \
     # vcpkg requirements
     curl zip unzip tar \
     # openssl requirements

@@ -14,4 +14,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     devscripts \
     qttools5-dev \
     qttools5-dev-tools \
+    libxkbfile-dev \
     && rm -rf /var/lib/apt/lists
