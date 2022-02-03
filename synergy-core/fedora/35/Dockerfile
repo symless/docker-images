@@ -1,6 +1,6 @@
 FROM fedora:35
 
-RUN yum -y update && yum install -y \
+RUN dnf clean all && dnf -y update && dnf -y install \
     avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \
     cmake3 \
