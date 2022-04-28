@@ -1,6 +1,4 @@
-# Installs git 2.20
-
-FROM debian:stretch
+FROM debian:9
 
 RUN sed -i 's/ stretch / buster /g' /etc/apt/sources.list
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
