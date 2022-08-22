@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:10
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
     git \

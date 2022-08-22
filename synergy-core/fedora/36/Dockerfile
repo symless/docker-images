@@ -1,4 +1,4 @@
-FROM fedora:35
+FROM fedora:36
 
 RUN dnf clean all && dnf -y update && dnf -y install \
     avahi-compat-libdns_sd-devel \
