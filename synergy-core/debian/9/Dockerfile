@@ -1,8 +1,15 @@
 FROM debian:9
 
-RUN sed -i 's/ stretch / buster /g' /etc/apt/sources.list
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
+# Update sources to buster 
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    sed -i 's/ stretch / buster /g' /etc/apt/sources.list && \
+    # Update base packages
+    apt-get update && \
+    apt-get upgrade -y && \
+    # Install Synergy core build dependencies
+    apt-get install -y \
     software-properties-common \
+    git \
     cmake \
     qtbase5-dev \
     build-essential \
@@ -25,5 +32,3 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libc-dev-bin/buster \
     zip \
     && rm -rf /var/lib/apt/lists
-
-RUN apt-get install -y git
