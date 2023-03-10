@@ -1,20 +1,15 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get upgrade && apt-get install -y software-properties-common
-
-RUN apt-add-repository ppa:git-core/ppa 
-
-RUN apt-get update \
-    && apt-get install -y wget \
-    && rm -rf /var/lib/apt/lists
-
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Linux-x86_64.sh \
-    -q -O /tmp/cmake-install.sh \
-    && chmod u+x /tmp/cmake-install.sh \
-    && /tmp/cmake-install.sh --skip-license --prefix=/usr \
-    && rm /tmp/cmake-install.sh
-
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
+# Update base packages
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    # Setup git repository
+    apt-get install software-properties-common -y && \
+    apt-add-repository ppa:git-core/ppa && \
+    apt-get update && \
+    # Install Synergy core build dependencies
+    apt-get install -y \
     git \
     curl \
     qtbase5-dev \
@@ -33,4 +28,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libgdk-pixbuf2.0-dev \
     libxkbfile-dev \
     zip \
-    && rm -rf /var/lib/apt/lists
+    && rm -rf /var/lib/apt/lists && \
+    # Install cmake 3.17.2
+    curl -sL -o /tmp/cmake-install.sh \
+    https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Linux-x86_64.sh && \
+    chmod u+x /tmp/cmake-install.sh && \
+    /tmp/cmake-install.sh --skip-license --prefix=/usr && \
+    rm /tmp/cmake-install.sh

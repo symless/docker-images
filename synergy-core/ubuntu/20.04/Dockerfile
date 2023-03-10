@@ -1,6 +1,15 @@
 FROM ubuntu:20.04
 
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
+# Update base packages
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    # Setup git repository
+    apt-get install software-properties-common -y && \
+    apt-add-repository ppa:git-core/ppa && \
+    apt-get update && \
+    # Install Synergy core build dependencies
+    apt-get install -y \
     git \
     cmake \
     qtbase5-dev \

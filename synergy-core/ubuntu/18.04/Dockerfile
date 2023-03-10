@@ -1,7 +1,16 @@
 FROM ubuntu:18.04
 
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
-    software-properties-common \
+# Update base packages
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    # Setup git repository
+    apt-get install software-properties-common -y && \
+    apt-add-repository ppa:git-core/ppa && \
+    apt-get update && \
+    # Install Synergy core build dependencies
+    apt-get install -y \
+    git \
     cmake \
     qtbase5-dev \
     build-essential \
@@ -20,4 +29,3 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -
     libgdk-pixbuf2.0-dev \
     libxkbfile-dev \
     && rm -rf /var/lib/apt/lists
-RUN apt-add-repository ppa:git-core/ppa && apt-get update && apt-get install -y git
