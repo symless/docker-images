@@ -1,6 +1,9 @@
 FROM fedora:34
 
-RUN yum -y update && yum install -y \
+# Update base packages
+RUN dnf -y update && \
+    # Install Synergy core build dependencies
+    dnf -y install \
     avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \
     cmake3 \

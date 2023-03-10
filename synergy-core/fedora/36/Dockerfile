@@ -1,6 +1,9 @@
 FROM fedora:36
 
-RUN dnf clean all && dnf -y update && dnf -y install \
+# Update base packages
+RUN dnf -y update && \
+    # Install Synergy core build dependencies
+    dnf -y install \
     avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \
     cmake3 \
