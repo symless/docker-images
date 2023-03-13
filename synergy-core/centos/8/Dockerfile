@@ -16,21 +16,21 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
  && dnf install -y \
     avahi-compat-libdns_sd-devel \
     cmake \
+    gcc \
+    gcc-c++ \
+    gdk-pixbuf2-devel \
     git \
-    make \
+    glib2-devel \
+    libcurl-devel \
+    libnotify-devel \
+    libxkbfile-devel \
     libXtst-devel \
+    make \
+    openssl-devel \
+    python3 \
     qt5-qtbase-devel \
     qt5-qtdeclarative-devel \
     qt5-qttools-devel \
-    libcurl-devel \
-    openssl-devel \
-    gcc-c++ \
-    gcc \
     rpm-build \
     rpmlint \
-    python3 \
-    libnotify-devel \
-    glib2-devel \
-    gdk-pixbuf2-devel \
-    libxkbfile-devel \
 && rm -rf /var/cache/yum

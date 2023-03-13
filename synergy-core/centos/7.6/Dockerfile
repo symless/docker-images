@@ -9,24 +9,24 @@ RUN ulimit -n 2048 \
  && yum -y update \
  # Install Synergy core build dependencies
  && yum -y install \
-    avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \
+    avahi-compat-libdns_sd-devel \
     cmake3 \
+    devtoolset-9 \
+    gdk-pixbuf2-devel \
     git \
-    make \
+    glib2-devel \
+    libcurl-devel \
+    libnotify-devel \
+    libxkbfile-devel \
     libXtst-devel \
+    make \
+    openssl-devel \
     qt5-qtbase-devel \
     qt5-qtdeclarative-devel \
     qt5-qttools-devel \
-    libcurl-devel \
-    openssl-devel \
-    devtoolset-9 \
     rpm-build \
     rpmlint \
-    libnotify-devel \
-    glib2-devel \
-    gdk-pixbuf2-devel \
-    libxkbfile-devel \
  && rm -rf /var/cache/yum \
  && ln -s $(which cmake3) /usr/bin/cmake
 

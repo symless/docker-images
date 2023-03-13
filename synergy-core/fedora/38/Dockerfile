@@ -4,23 +4,23 @@ FROM fedora:38
 RUN dnf -y update \
     # Install Synergy core build dependencies
  && dnf -y install \
-    avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \
+    avahi-compat-libdns_sd-devel \
     cmake3 \
+    desktop-file-utils \
+    gdk-pixbuf2-devel \
     git \
+    glib2-devel \
     gpg \
-    make \
+    libcurl-devel \
+    libnotify-devel \
+    libxkbfile-devel \
     libXtst-devel \
+    make \
+    openssl-devel \
     qt5-qtbase-devel \
     qt5-qtdeclarative-devel \
     qt5-qttools-devel \
-    libcurl-devel \
-    openssl-devel \
-    desktop-file-utils \
     rpm-build \
     rpmlint \
-    libnotify-devel \
-    glib2-devel \
-    gdk-pixbuf2-devel \
-    libxkbfile-devel \
  && rm -rf /var/cache/yum
