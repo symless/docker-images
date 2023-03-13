@@ -1,11 +1,11 @@
 FROM debian:sid
 
 # Update base packages
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
-    apt-get upgrade -y && \
+RUN export DEBIAN_FRONTEND=noninteractive \
+ && apt-get update \
+ && apt-get upgrade -y \
     # Install Synergy core build dependencies
-    apt-get install -y \
+ && apt-get install -y \
     git \
     cmake \
     qtbase5-dev \
@@ -24,4 +24,4 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     libgdk-pixbuf2.0-dev \
     libxkbfile-dev \
     zip \
-    && rm -rf /var/lib/apt/lists
+ && rm -rf /var/lib/apt/lists

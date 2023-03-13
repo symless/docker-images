@@ -1,9 +1,9 @@
 FROM fedora:36
 
 # Update base packages
-RUN dnf -y update && \
+RUN dnf -y update \
     # Install Synergy core build dependencies
-    dnf -y install \
+ && dnf -y install \
     avahi-compat-libdns_sd-devel \
     avahi-compat-libdns_sd \
     cmake3 \
@@ -23,4 +23,4 @@ RUN dnf -y update && \
     glib2-devel \
     gdk-pixbuf2-devel \
     libxkbfile-devel \
-    && rm -rf /var/cache/yum
+ && rm -rf /var/cache/yum

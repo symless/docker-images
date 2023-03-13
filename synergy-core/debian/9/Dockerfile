@@ -1,13 +1,13 @@
 FROM debian:9
 
 # Update sources to buster 
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    sed -i 's/ stretch / buster /g' /etc/apt/sources.list && \
+RUN export DEBIAN_FRONTEND=noninteractive \
+ && sed -i 's/ stretch / buster /g' /etc/apt/sources.list \
     # Update base packages
-    apt-get update && \
-    apt-get upgrade -y && \
+ && apt-get update \
+ && apt-get upgrade -y \
     # Install Synergy core build dependencies
-    apt-get install -y \
+ && apt-get install -y \
     software-properties-common \
     git \
     cmake \
@@ -31,4 +31,4 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     libc6-dev/buster \
     libc-dev-bin/buster \
     zip \
-    && rm -rf /var/lib/apt/lists
+ && rm -rf /var/lib/apt/lists
