@@ -1,21 +1,59 @@
 #! /usr/bin/env bash
 
-if [ -z "${1:-}" ] || [ -z "${2:-}" ] || [ "-h" = "${1:-}" ] || [ "--help" = "${1:-}" ]; then
-  echo "${0}
+JOBS="1"
+BRANCH="master"
 
+usage() { echo "
 Create docker container then build synergy-core
 
 USAGE:
-  ${0} OS VERSION [OPTIONS]
+  $0 [OPTIONS] OS VERSION
 
 OPTIONS:
-  -j [jobs], --jobs[=jobs]
-    Specifies  the  number  of jobs (commands) to run simultaneously.
-    If there is more than one -j option, the last one is effective.
-    If the -j option is given without an argument, make will not
-    limit the number of jobs that can run simultaneously.
+  -h
+    Prints this usage text.
+  -j JOBS
+    Specifies the number of jobs (commands) to run simultaneously.
+    If the argument is a '-' then it is treated as having no limit
+    to the number of simultaneous jobs.
+  -b BRANCH_NAME
+    Specifies the branch. Defaults to 'master'.
 "
-  exit 0
+  exit 1
+}
+
+if [ -z "$*" ]; then
+  usage
+fi
+
+while getopts "hj:b:" flag; do
+  case "$flag" in
+    j) JOBS=$OPTARG;;
+    b) BRANCH=$OPTARG;;
+    *) usage;;
+  esac
+done
+
+OS="${@:$OPTIND:1}"
+VERSION=${@:$OPTIND+1:1}
+
+echo -e "
+ARGUMENTS:
+  OS:      $OS
+  VERSION: $VERSION
+
+OPTIONS:
+  JOBS:    $JOBS
+  BRANCH:  $BRANCH
+"
+if [ -z $OS ]; then
+  echo "The OS parameter is required!"
+  usage
+fi
+
+if [ -z $VERSION ]; then
+  echo "The VERSION parameter is required!"
+  usage
 fi
 
 # exit when any command fails
@@ -26,5 +64,5 @@ trap 'echo "\"${BASH_COMMAND}\" command filed with exit code $?."' DEBUG
 
 mkdir -p output
 
-./build-core.sh "$1" "$2" |& tee "./output/synergy-core-$1$2.txt"
-./make-core.sh "$1" "$2" "${3:-"-j"}" |& tee -a "./output/synergy-core-$1$2.txt"
+./build-core.sh "$OS" "$VERSION" |& tee "./output/synergy-core-$OS$VERSION.txt"
+./make-core.sh -j "$JOBS" -b "$BRANCH" "$OS" "$VERSION" |& tee -a "./output/synergy-core-$OS$VERSION.txt"
