@@ -1,4 +1,4 @@
-FROM fedora:34
+FROM fedora:37
 
 # Update base packages
 RUN dnf -y update \
@@ -7,6 +7,7 @@ RUN dnf -y update \
     avahi-compat-libdns_sd \
     avahi-compat-libdns_sd-devel \
     cmake3 \
+    desktop-file-utils \
     gdk-pixbuf2-devel \
     git \
     glib2-devel \

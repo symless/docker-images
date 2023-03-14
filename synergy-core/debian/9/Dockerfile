@@ -1,29 +1,34 @@
 FROM debian:9
 
-RUN sed -i 's/ stretch / buster /g' /etc/apt/sources.list
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get upgrade -y && apt-get install -y \
-    software-properties-common \
-    cmake \
-    qtbase5-dev \
+# Update sources to buster 
+RUN export DEBIAN_FRONTEND=noninteractive \
+ && sed -i 's/ stretch / buster /g' /etc/apt/sources.list \
+    # Update base packages
+ && apt-get update \
+ && apt-get upgrade -y \
+    # Install Synergy core build dependencies
+ && apt-get install -y \
     build-essential \
-    libx11-dev \
-    libxtst-dev \
-    libgl1-mesa-dev \
-    libssl-dev \
-    libavahi-compat-libdnssd-dev \
+    cmake \
     debhelper \
     devscripts \
+    git \
+    libavahi-compat-libdnssd-dev \
+    libc-dev-bin/buster \
+    libc6-dev/buster \
+    libc6/buster \
+    libgdk-pixbuf2.0-dev \
+    libgl1-mesa-dev \
+    libglib2.0-dev \
+    libnotify-dev \
+    libssl-dev \
+    libx11-dev \
+    libxkbfile-dev \
+    libxtst-dev \
+    qt5-default \
+    qtbase5-dev \
     qttools5-dev \
     qttools5-dev-tools \
-    qt5-default \
-    libnotify-dev \
-    libglib2.0-dev \
-    libgdk-pixbuf2.0-dev \
-    libxkbfile-dev \
-    libc6/buster \
-    libc6-dev/buster \
-    libc-dev-bin/buster \
+    software-properties-common \
     zip \
-    && rm -rf /var/lib/apt/lists
-
-RUN apt-get install -y git
+ && rm -rf /var/lib/apt/lists
