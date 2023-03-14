@@ -10,7 +10,7 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
     # Setup dnf plugins and powertools
  && dnf -y install https://packages.endpointdev.com/rhel/8/main/x86_64/endpoint-repo.noarch.rpm \
  && dnf -y install dnf-plugins-core \
-    dnf -y config-manager --set-enabled powertools \
+ && dnf -y config-manager --set-enabled powertools \
  && dnf -y update \
     # Install Synergy core build dependencies
  && dnf install -y \
