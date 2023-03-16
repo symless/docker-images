@@ -34,4 +34,4 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
     rpm-build \
     rpmlint \
  && rm -rf /var/cache/yum \
- && git config --global --add safe.directory '*'
+ && git config --system --add safe.directory '*'

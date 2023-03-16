@@ -29,7 +29,7 @@ RUN ulimit -n 2048 \
     rpmlint \
  && rm -rf /var/cache/yum \
  && ln -s $(which cmake3) /usr/bin/cmake \
- && git config --global --add safe.directory '*'
+ && git config --system --add safe.directory '*'
 
 ENV PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV LD_LIBRARY_PATH=/opt/rh/devtoolset-9/root/usr/lib64:/opt/rh/devtoolset-9/root/usr/lib:/opt/rh/devtoolset-9/root/usr/lib64/dyninst:/opt/rh/devtoolset-9/root/usr/lib/dyninst:/opt/rh/devtoolset-9/root/usr/lib64:/opt/rh/devtoolset-9/root/usr/lib

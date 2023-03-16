@@ -29,4 +29,4 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libgdk-pixbuf2.0-dev \
     libxkbfile-dev \
  && rm -rf /var/lib/apt/lists \
- && git config --global --add safe.directory '*'
+ && git config --system --add safe.directory '*'

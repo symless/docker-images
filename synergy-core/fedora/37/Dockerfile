@@ -24,4 +24,4 @@ RUN dnf -y update \
     rpm-build \
     rpmlint \
  && rm -rf /var/cache/yum \
- && git config --global --add safe.directory '*'
+ && git config --system --add safe.directory '*'
