@@ -22,4 +22,5 @@ RUN dnf -y update \
     qt5-qttools-devel \
     rpm-build \
     rpmlint \
- && rm -rf /var/cache/yum
+ && rm -rf /var/cache/yum \
+ && git config --global --add safe.directory '*'

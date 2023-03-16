@@ -29,6 +29,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     qttools5-dev-tools \
     zip \
     && rm -rf /var/lib/apt/lists \
+ && git config --global --add safe.directory '*' \
     # Install cmake 3.17.2
  && curl -sL -o /tmp/cmake-install.sh \
     https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Linux-x86_64.sh \

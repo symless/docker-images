@@ -33,4 +33,5 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
     qt5-qttools-devel \
     rpm-build \
     rpmlint \
-&& rm -rf /var/cache/yum
+ && rm -rf /var/cache/yum \
+ && git config --global --add safe.directory '*'

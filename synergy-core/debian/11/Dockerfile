@@ -24,4 +24,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     qttools5-dev \
     qttools5-dev-tools \
     zip \
- && rm -rf /var/lib/apt/lists
+ && rm -rf /var/lib/apt/lists \
+ && git config --global --add safe.directory '*'
