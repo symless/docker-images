@@ -64,5 +64,5 @@ trap 'echo "\"${BASH_COMMAND}\" command filed with exit code $?."' DEBUG
 
 mkdir -p output
 
-./build-core "$OS" "$VERSION" |& tee "./output/synergy-core-$OS-$VERSION.txt"
+./build-container "$OS" "$VERSION" |& tee "./output/synergy-core-$OS-$VERSION.txt"
 ./make-core -j "$JOBS" -b "$BRANCH" "$OS" "$VERSION" |& tee -a "./output/synergy-core-$OS-$VERSION.txt"
