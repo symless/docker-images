@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:rolling
 
 # Update base packages
 RUN export DEBIAN_FRONTEND=noninteractive \

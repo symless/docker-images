@@ -34,8 +34,8 @@ while getopts "hj:b:" flag; do
   esac
 done
 
-OS="${@:$OPTIND:1}"
-VERSION=${@:$OPTIND+1:1}
+OS="${*:$OPTIND:1}"
+VERSION=${*:$OPTIND+1:1}
 
 echo -e "
 ARGUMENTS:
@@ -46,12 +46,12 @@ OPTIONS:
   JOBS:    $JOBS
   BRANCH:  $BRANCH
 "
-if [ -z $OS ]; then
+if [ -z "$OS" ]; then
   echo "The OS parameter is required!"
   usage
 fi
 
-if [ -z $VERSION ]; then
+if [ -z "$VERSION" ]; then
   echo "The VERSION parameter is required!"
   usage
 fi
@@ -64,5 +64,5 @@ trap 'echo "\"${BASH_COMMAND}\" command filed with exit code $?."' DEBUG
 
 mkdir -p output
 
-./build-core.sh "$OS" "$VERSION" |& tee "./output/synergy-core-$OS$VERSION.txt"
-./make-core.sh -j "$JOBS" -b "$BRANCH" "$OS" "$VERSION" |& tee -a "./output/synergy-core-$OS$VERSION.txt"
+./build-container "$OS" "$VERSION" |& tee "./output/synergy-core-$OS-$VERSION.txt"
+./make-core -j "$JOBS" -b "$BRANCH" "$OS" "$VERSION" |& tee -a "./output/synergy-core-$OS-$VERSION.txt"

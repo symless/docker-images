@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 JOBS="1"
+TESTS="1"
 BRANCH="master"
 FILTER=""
 
@@ -27,18 +28,21 @@ OPTIONS:
   exit 1
 }
 
-while getopts "hj:b:" flag; do
+while getopts "hj:b:J:" flag; do
   case "$flag" in
     j) JOBS=$OPTARG;;
+    J) TESTS=$OPTARG;;
     b) BRANCH=$OPTARG;;
     *) usage;;
   esac
 done
 
-FILTER=${@:$OPTIND}
+FILTER=${*:$OPTIND}
 
 echo -e "
 ARGUMENTS:
+  TESTS:  $TESTS
+  JOBS:   $JOBS
   FILTER: $FILTER
 
 OPTIONS:
@@ -50,13 +54,9 @@ docker container prune -f
 function args_pairs() {
   for os in "$1"/*; do
     for version in "$os"/*; do
-      if [ "ubuntu 16.04" = "$(basename "$os") $(basename "$version")" ]; then
-        echo "-j 1 $(basename "$os") $(basename "$version")"
-      else
-        echo "-j $JOBS $(basename "$os") $(basename "$version")"
-      fi
+      echo "-j $JOBS $(basename "$os") $(basename "$version")"
     done
   done
 }
 
-args_pairs "./synergy-core" | grep "$FILTER" | xargs -L1 ./test-core.sh -b "$BRANCH"
+args_pairs "./synergy-core" | grep "$FILTER" | xargs -L1 -P "$TESTS" ./test-core -b "$BRANCH"
