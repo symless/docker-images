@@ -1,7 +1,7 @@
 ODIR = ./output
 BRANCH = master
-MAKE-PARALLEL = -
-TEST-PARALLEL = 1
+JOBS = -
+TESTS = 1
 FILTER = 
 
 .PHONY: clean purge test-all
@@ -13,4 +13,4 @@ rmi:
 	docker images | grep symless/synergy-core | tr -s ' ' | cut -d ' ' -f 2 | xargs -I {} docker rmi symless/synergy-core:{}
 
 test-all:
-	./test-core-all $(FILTER) -j $(MAKE-PARALLEL) -b $(BRANCH) -J $(TEST-PARALLEL)
+	./test-core-all $(FILTER) -j $(JOBS) -b $(BRANCH) -J $(TESTS)
